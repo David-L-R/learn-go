@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -56,4 +58,8 @@ func (d deck) dealHand(handSize int, numPlayers int) (deck, []deck) {
 	}
 	
 	return d, players
+}
+
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile("./playingCards/" +filename, []byte(strings.Join([]string(d), ",")), 0644)
 }
