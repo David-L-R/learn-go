@@ -61,5 +61,5 @@ func (d deck) dealHand(handSize int, numPlayers int) (deck, []deck) {
 }
 
 func (d deck) saveToFile(filename string) error {
-	return ioutil.WriteFile("./playingCards/" +filename, []byte(strings.Join([]string(d), ",")), 0644)
+	return ioutil.WriteFile("./playingCards/" + filename, []byte(strings.Join([]string(d), ",")), 0644)
 }
